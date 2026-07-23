@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Una carta para ti · Love Airlines</title>
+  <meta name="description" content="Una carta especial con cuenta regresiva para verte. ✈❤" />
+
+  <!-- ===== Portada al compartir (WhatsApp, Facebook, etc.) ===== -->
+  <!-- IMPORTANTE: reemplaza USUARIO y REPO por los tuyos de GitHub Pages -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Una carta para ti ✈❤" />
+  <meta property="og:description" content="Ábrela para ver la cuenta regresiva... nos vemos el 26 de agosto." />
+  <meta property="og:image" content="https://USUARIO.github.io/REPO/preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://USUARIO.github.io/REPO/" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Una carta para ti ✈❤" />
+  <meta name="twitter:description" content="Ábrela para ver la cuenta regresiva... nos vemos el 26 de agosto." />
+  <meta name="twitter:image" content="https://USUARIO.github.io/REPO/preview.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sky">
+    <div class="clouds"></div>
+    <!-- Lienzo donde el avión dibuja el corazón -->
+    <canvas id="heartCanvas"></canvas>
+  </div>
+
+  <main class="stage">
+    <!-- Boarding pass / Carta -->
+    <section class="boarding-pass" id="pass">
+      <div class="pass-main">
+        <header class="pass-header">
+          <div class="airline">
+            <span class="logo">✈</span>
+            <span class="airline-name">LOVE AIRLINES</span>
+          </div>
+          <span class="pass-type">BOARDING PASS</span>
+        </header>
+
+        <div class="route">
+          <div class="point">
+            <span class="code">YO</span>
+            <span class="city">Aquí</span>
+          </div>
+          <div class="path">
+            <span class="dot"></span>
+            <span class="line"></span>
+            <span class="plane-icon">✈</span>
+            <span class="line"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="point">
+            <span class="code">TU</span>
+            <span class="city">Allá</span>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="detail">
+            <span class="label">Pasajero</span>
+            <span class="value">Tu Príncipe</span>
+          </div>
+          <div class="detail">
+            <span class="label">Vuelo</span>
+            <span class="value">LV · 2026</span>
+          </div>
+          <div class="detail">
+            <span class="label">Puerta</span>
+            <span class="value">❤ 1</span>
+          </div>
+          <div class="detail">
+            <span class="label">Asiento</span>
+            <span class="value">1A</span>
+          </div>
+        </div>
+
+        <button class="board-btn" id="boardBtn">
+          <span>Abrir mi carta</span>
+        </button>
+      </div>
+
+      <!-- Talón perforado -->
+      <div class="pass-stub">
+        <div class="stub-inner">
+          <span class="label">Destino</span>
+          <span class="value">Tú</span>
+          <span class="label">Cuenta regresiva</span>
+          <span class="value big" id="stubDays">3435</span>
+          <span class="label">días</span>
+          <div class="barcode"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mensaje que aparece tras el vuelo -->
+    <section class="letter" id="letter" aria-hidden="true">
+      <div class="letter-card">
+        <span class="letter-heart">❤</span>
+        <p class="letter-kicker">Un mensaje especial para ti</p>
+        <h1 class="letter-count">Restan <span id="daysText">3535</span> días</h1>
+        <h2 class="letter-sub">para verte</h2>
+        <p class="letter-date">Nos vemos el 26 de agosto</p>
+        <p class="letter-love">Te quiero mucho</p>
+        <button class="again-btn" id="againBtn">Enviar de nuevo ✈</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
