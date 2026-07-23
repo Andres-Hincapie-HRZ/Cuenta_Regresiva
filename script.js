@@ -78,9 +78,10 @@ function launch() {
   boardBtn.disabled = true;
   pass.classList.add("launch");
 
+  // El corazón se dibuja en la parte superior para que no lo tape el boleto.
   const cx = window.innerWidth / 2;
-  const cy = window.innerHeight / 2;
-  const scale = Math.min(window.innerWidth, window.innerHeight) / 44;
+  const cy = window.innerHeight * 0.24;
+  const scale = Math.min(window.innerWidth, window.innerHeight) / 60;
 
   let progress = 0;           // 0 a 1
   const speed = 0.006;        // velocidad del avión
@@ -136,7 +137,12 @@ function launch() {
     if (progress < 1.02) {
       animId = requestAnimationFrame(frame);
     } else {
-      revealLetter();
+      // El corazón queda dibujado un momento y luego se desvanece
+      // para que la tarjeta final quede despejada y limpia.
+      setTimeout(() => {
+        canvas.classList.add("fade");
+        setTimeout(revealLetter, 700);
+      }, 600);
     }
   }
   frame();
@@ -204,6 +210,7 @@ function revealLetter() {
 function reset() {
   cancelAnimationFrame(animId);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.classList.remove("fade");
   trail.length = 0;
   letter.classList.remove("show");
   letter.setAttribute("aria-hidden", "true");
